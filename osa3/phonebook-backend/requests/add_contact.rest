@@ -1,0 +1,7 @@
+POST https://autumn-grass-5098.fly.dev/api/persons
+Content-Type: application/json
+
+{
+    "name": "jonska",
+    "number": "123-456789"
+}
