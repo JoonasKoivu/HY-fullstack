@@ -1,0 +1,31 @@
+h1 {
+    color: green;
+    font-style: italic;
+  }
+
+  .contact {
+    color:tomato;
+    padding-top: 3px;
+    font-size: 15px;
+  }
+
+  .completed {
+    color: green;
+    width: fit-content;
+    background: lightgrey;
+    font-size: 20px;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .error {
+    color: red;
+    width: fit-content;
+    background: lightgrey;
+    font-size: 20px;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
