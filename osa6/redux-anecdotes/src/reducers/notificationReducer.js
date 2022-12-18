@@ -21,7 +21,7 @@ export const createNotification = (message, time) => {
         clearTimeout(timeoutId)
         // Set new notification
         dispatch(setNotification(message))
-        // Set timeout to clear notification
+        // Set timeout to clear new notification
         timeoutId = setTimeout(() => {
             dispatch(clearNotification())
         }, time * 1000)

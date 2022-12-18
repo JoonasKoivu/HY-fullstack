@@ -10,7 +10,6 @@ const getAll = async () => {
 }
 
 const createNew = async (content) => {
-    console.log("content in createNew", content)
     const object = {content, votes: 0, id: getId()}
     const response = await axios.post(baseUrl, object)
     return response.data
