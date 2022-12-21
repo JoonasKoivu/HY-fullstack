@@ -14,7 +14,7 @@ const App = () => {
   const [newNumber, setNewNumber] = useState('')
   const [filter, setFilter] = useState('')
   const [message, setMessage] = useState(null)
-  const [ errorMessage, setErrorMessage ] = useState(null)
+  const [errorMessage, setErrorMessage ] = useState(null)
 
   useEffect(() => {
     contactService
@@ -36,10 +36,10 @@ const App = () => {
   const handleFilterChange = (event) => {
     // update filter field
     setFilter(event.target.value)
-    // filter shown persons based on the filter field
+    //filter shown persons based on the filter field
     //const filteredPersons = persons.filter((person) => 
     //person.name.toLocaleLowerCase().includes(event.target.value.toLocaleLowerCase()))
-    // Update value filteredPersons
+    //Update value filteredPersons
     //setFilteredPersons(filteredPersons)
   }
 
@@ -73,8 +73,8 @@ const App = () => {
             setNewName('')
             setNewNumber('')
         })
-        .catch((error) => {
-          setErrorMessage(error.response.data.error)
+        .catch(error => {
+          setErrorMessage("Name or number is missing")
           setTimeout(()=>{
             setErrorMessage(null)
           }, 5000)
@@ -99,8 +99,7 @@ const App = () => {
           setNewNumber('')
         })
         .catch(error => {
-          console.log("personservice error: ", error.response.data.error)
-          setErrorMessage(error.response.data.error)
+          setErrorMessage('Name or number is missing')
           setTimeout(()=>{
             setErrorMessage(null)
           }, 5000)
@@ -110,8 +109,20 @@ const App = () => {
   const deleteContact = person => {
     if(window.confirm(`Delete ${person.name}?`)){
       console.log(person)
-      contactService.deleteContact(person.id)
-      setPersons(persons.filter(p => p.id !== person.id))
+      contactService
+        .deleteContact(person.id)
+        .then(() => {
+          console.log("deleted")
+          setPersons(persons.filter(p => p.id !== person.id))
+        })
+        .catch(error => {
+          console.log("personservice error: ", error)
+          setErrorMessage(`Seems like ${person.name} has already been removed from the server`)
+          setPersons(persons.filter(p => p.id !== person.id))
+          setTimeout(()=>{
+            setErrorMessage(null)
+          }, 5000)
+        })
     } else {
       console.log("Chose not to delete")
     }
