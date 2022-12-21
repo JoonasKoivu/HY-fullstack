@@ -153,6 +153,20 @@ describe('Testing the blogApp functionality thoroughly', () => {
                 .expect('Content-Type', /application\/json/)
             expect(result.body.error).toContain('Blog validation failed')
         })
+
+        test('Creating a blog fails without auth token', async () => {
+            const result = await api
+                .post('/api/blogs')
+                .send({
+                    'title':'empty url',
+                    'author':'joku',
+                    'likes':2,
+                    'user':testUser.id
+                })
+                .expect(401)
+                .expect('Content-Type', /application\/json/)
+            expect(result.body.error).toContain('invalid token')
+        })
         
         /*
     })
