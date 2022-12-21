@@ -138,7 +138,6 @@ describe('Blog app', function () {
           cy.wrap(blogs[2]).contains('Toinen testi blogi cypressillä')
         })
       })
-
     })
   })
 })
