@@ -1,0 +1,11 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikpvb25hcyIsImlkIjoiNjM4OTNiMjFlNzEyNDFlYzYyOGY0MjU2IiwiaWF0IjoxNjY5OTM3OTU0fQ.pmYa3EFHUZQx8QqNbrqzgfBT8b5ZasdSBPJonCCvKLg
+
+{
+    "title": "token testi",
+    "author": "Random author",
+    "url": "www.token.org",
+    "likes": 1111,
+    "userId": "63893b12e71241ec628f4220"
+}
